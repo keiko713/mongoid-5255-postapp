@@ -12,5 +12,5 @@ ADD app/Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 ADD ./app /app
 
-EXPOSE 5678
+EXPOSE 4567
 CMD ["ruby", "/app/app.rb"]
