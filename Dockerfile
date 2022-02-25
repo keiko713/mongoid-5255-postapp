@@ -13,4 +13,4 @@ RUN bundle install
 ADD ./app /app
 
 EXPOSE 4567
-CMD ["ruby", "/app/app.rb"]
+CMD ["./boot.sh"]

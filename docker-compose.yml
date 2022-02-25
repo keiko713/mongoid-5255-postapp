@@ -1,19 +1,31 @@
 version: "3.5"
 
 services:
-  mongodb:
+  mongo:
     image: mongo:4.2.9
+    env_file: .env.development
+    networks:
+      - app
+    volumes:
+      - db:/data/db
 
   postapp:
     build: .
-    command: ruby /app/app.rb
+    env_file: .env.development
+    networks:
+      - app
+    command: /app/boot.sh
     volumes:
       - ./app:/app
     ports:
       - "4567:4567"
     depends_on:
-      - mongodb
+      - mongo
     links:
-      - mongodb
-    environment:
-      - MONGODB_NAME=development
+      - mongo
+
+networks:
+  app:
+
+volumes:
+  db:
