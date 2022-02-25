@@ -3,3 +3,4 @@ ruby "2.7.4"
 
 gem "mongoid"
 gem "sinatra"
+gem "unicorn"
