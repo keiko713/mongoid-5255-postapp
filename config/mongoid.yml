@@ -1,0 +1,10 @@
+development:
+  clients:
+    default:
+      uri: mongodb+srv://user:pass@yourcluster.mongodb.net/blog_development?retryWrites=true&w=majority
+      options:
+        server_selection_timeout: 5
+    secondary:
+      uri: mongodb+srv://user:pass@yourcluster.mongodb.net/blog_development?retryWrites=true&w=majority
+      options:
+        server_selection_timeout: 5

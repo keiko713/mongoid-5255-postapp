@@ -1,0 +1,14 @@
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.2.9
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/var/config
+      - mongodb_configdb:/data/configdb
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
+      interval: 10s
+      retries: 60
