@@ -10,7 +10,7 @@ services:
     volumes:
       - ./app:/app
     ports:
-      - "5678:5678"
+      - "4567:4567"
     depends_on:
       - mongodb
     links:
