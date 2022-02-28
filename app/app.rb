@@ -22,11 +22,13 @@ class Comment
 end
 
 get '/' do
-  'Hello world!'
+  "Clients info: #{Mongoid::Clients.clients}"
 end
 
 get '/posts' do
-  Post.all.to_json
+  Post.with(client: :secondary) do
+    Post.all.to_json
+  end
 end
 
 post '/posts' do
